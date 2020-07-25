@@ -73,6 +73,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "starry_students.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+
+    "starry_students.manager.apps.ManagerConfig"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

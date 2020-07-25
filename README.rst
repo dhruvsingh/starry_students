@@ -99,3 +99,29 @@ See detailed `cookiecutter-django Docker documentation`_.
 
 
 
+Helpful commands
+-----------------
+
+- Add an app (might need sudo), then do a chown -R on the folder created
+
+::
+
+$ sudo docker-compose -f local.yml run --rm django python manage.py startapp manager
+
+- Add migration for student model
+
+::
+
+$ sudo docker-compose -f local.yml run --rm django python manage.py makemigrations manager --name add_student_model
+
+- Add a superuser
+
+::
+
+$ sudo docker-compose -f local.yml run --rm django python manage.py createsuperuser
+
+- Add a superuser
+
+::
+
+$ sudo docker-compose -f local.yml run --rm django python manage.py createsuperuser

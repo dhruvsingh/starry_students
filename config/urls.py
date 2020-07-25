@@ -14,6 +14,10 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("starry_students.users.urls", namespace="users")),
+    path(
+        "manager/",
+        include("starry_students.manager.urls", namespace="manager")
+    ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
