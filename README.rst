@@ -84,6 +84,10 @@ Deployment
 
 The following details how to deploy this application.
 
+::
+
+$ export COMPOSE_FILE=local.yml
+$ docker-compose up
 
 
 Docker

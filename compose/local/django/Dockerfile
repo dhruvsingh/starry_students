@@ -3,6 +3,8 @@ FROM python:3.8-slim-buster
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
+RUN rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update \
   # dependencies for building Python packages
   && apt-get install -y build-essential \
