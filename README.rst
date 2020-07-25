@@ -14,6 +14,14 @@ Maintain student stars
 :License: MIT
 
 
+Prerequisites
+-------------
+- Install docker_.
+- Install docker-compose_.
+
+.. _docker: https://docs.docker.com/get-docker/
+.. _docker-compose: https://docs.docker.com/compose/install/
+
 Settings
 --------
 

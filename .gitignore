@@ -276,3 +276,6 @@ starry_students/media/
 .env
 .envs/*
 !.envs/.local/
+
+# pycharm
+.idea/
