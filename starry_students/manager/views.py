@@ -20,7 +20,7 @@ class StudentListView(ListView):
     """View to list all in/active students"""
 
     model = Student
-    template_name = 'manager/student_list.html'
+    template_name = 'manager/student/list.html'
 
 
 class StudentDetailView(DetailView):
@@ -28,7 +28,7 @@ class StudentDetailView(DetailView):
 
     model = Student
     pk_url_kwarg = 'id'
-    template_name = 'manager/student_detail.html'
+    template_name = 'manager/student/detail.html'
 
 
 class StudentUpdateView(UpdateView):
@@ -38,7 +38,7 @@ class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentAddUpdateForm
     success_url = reverse_lazy("manager:student_list")
-    template_name = 'manager/student_update.html'
+    template_name = 'manager/student/update.html'
 
 
 class StudentAddView(CreateView):
@@ -46,7 +46,7 @@ class StudentAddView(CreateView):
 
     form_class = StudentAddUpdateForm
     success_url = reverse_lazy("manager:student_list")
-    template_name = 'manager/student_add.html'
+    template_name = 'manager/student/add.html'
 
 
 class StudentDeleteView(DeleteView):
@@ -55,4 +55,4 @@ class StudentDeleteView(DeleteView):
     pk_url_kwarg = 'id'
     queryset = Student.objects.all()
     success_url = reverse_lazy("manager:student_list")
-    template_name = 'manager/student_delete.html'
+    template_name = 'manager/student/delete.html'
