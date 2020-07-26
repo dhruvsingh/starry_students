@@ -11,13 +11,23 @@ urlpatterns = [
         name="student_list"
     ),
     path(
-        "students/<int:id>",
+        "students/<int:id>/",
         view=views.StudentDetailView.as_view(),
         name="student_detail"
+    ),
+    path(
+        "students/<int:id>/update/",
+        view=views.StudentUpdateView.as_view(),
+        name="student_update"
     ),
     path(
         "students/add/",
         view=views.StudentAddView.as_view(),
         name="student_add"
+    ),
+    path(
+        "students/<int:id>/delete/",
+        view=views.StudentDeleteView.as_view(),
+        name="student_delete"
     ),
 ]

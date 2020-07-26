@@ -2,11 +2,17 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 
 
 # Create your views here.
-from starry_students.manager.forms import StudentAddForm
+from starry_students.manager.forms import StudentAddUpdateForm
 from starry_students.manager.models import Student
 
 
@@ -25,9 +31,28 @@ class StudentDetailView(DetailView):
     template_name = 'manager/student_detail.html'
 
 
-class StudentAddView(CreateView):
-    """View to list all in/active students"""
+class StudentUpdateView(UpdateView):
+    """View to update a student."""
 
-    form_class = StudentAddForm
-    success_url = reverse_lazy("home")
+    pk_url_kwarg = 'id'
+    model = Student
+    form_class = StudentAddUpdateForm
+    success_url = reverse_lazy("manager:student_list")
+    template_name = 'manager/student_update.html'
+
+
+class StudentAddView(CreateView):
+    """View to list all in/active students."""
+
+    form_class = StudentAddUpdateForm
+    success_url = reverse_lazy("manager:student_list")
     template_name = 'manager/student_add.html'
+
+
+class StudentDeleteView(DeleteView):
+    """View to delete student."""
+
+    pk_url_kwarg = 'id'
+    queryset = Student.objects.all()
+    success_url = reverse_lazy("manager:student_list")
+    template_name = 'manager/student_delete.html'

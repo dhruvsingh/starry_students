@@ -3,8 +3,16 @@
 {% block title %}Server Error{% endblock %}
 
 {% block content %}
-  <h1>Students list</h1>
-
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-9">
+        <h1>Students list</h1>
+      </div>
+      <div class="col-md-3">
+        <a class="btn btn-info" href="{% url 'manager:student_add' %}" role="button">Add Student</a>
+      </div>
+    </div>
+  </div>
 
   <table class="table table-striped table-bordered">
     <thead class="thead-dark">
@@ -21,7 +29,9 @@
         <td>{{ student.id }}</td>
         <td>{{ student.name }}</td>
         <td>
-          <a class="btn btn-primary" href="{% url 'manager:student_detail' student.id %}" role="button">View student detail</a>
+          <a class="btn btn-info" href="{% url 'manager:student_detail' student.id %}" role="button">View</a>
+          <a class="btn btn-warning" href="{% url 'manager:student_update' student.id %}" role="button">Edit</a>
+          <a class="btn btn-danger" href="{% url 'manager:student_delete' student.id %}" role="button">Delete</a>
         </td>
       </tr>
     {% endfor %}
