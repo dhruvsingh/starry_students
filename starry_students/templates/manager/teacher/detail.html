@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Teacher's Students{% endblock %}
+
+{% block content %}
+  <h1>Teacher ID - {{ object.id }}, {{ object.name }}'s students</h1>
+
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <td>Name</td>
+        <td>Students</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for student in object.students.all %}
+        <tr>
+          <td>
+            {{ student.name }}
+          </td>
+          <td>
+            <a class="btn btn-success" href="{% url 'manager:student_star_view' object.id student.id %}" role="button">Star</a>
+          </td>
+        </tr>
+      {% endfor %}
+  </table>
+{% endblock %}

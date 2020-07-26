@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from dateutil import relativedelta
 from django.db import models
 
 from django.utils import timezone
@@ -79,5 +80,57 @@ class Student(BaseModel):
     def __repr__(self):
         """repr() for Student."""
         return f'<Student: {self.id} - {self.name}>'
+
+    __str__ = __repr__
+
+
+class Teacher(BaseModel):
+    """Hold teacher information.
+
+    Should be related to user, as One2One Field, but for now its as is.
+    """
+
+    name = models.CharField(
+        max_length=64,
+    )
+    students = models.ManyToManyField(
+        Student,
+        through="TeacherStudent",
+        related_name="teachers",
+        blank=True,  # needed in order to make it optional
+    )
+
+    class Meta:
+        """Meta for Teacher model."""
+
+        ordering = ('-created_at',)
+
+    def __repr__(self):
+        """repr() for Teacher."""
+        return f'<Teacher: {self.id} - {self.name}>'
+
+    __str__ = __repr__
+
+
+class TeacherStudent(models.Model):
+    """
+    Hold information about teachers and students.
+
+    Also holds information about STAR students.
+    """
+
+    student = models.ForeignKey(Student, models.CASCADE)
+    teacher = models.ForeignKey(Teacher, models.CASCADE)
+    # a boolean for now, can be an integer field to store student rating
+    starred_student = models.BooleanField(default=False)
+
+    class Meta:
+        """Meta for TeacherStudent."""
+
+        unique_together = ("teacher", "student")
+
+    def __repr__(self):
+        """repr() for TeacherStudent."""
+        return f'<Teacher - Student: {self.teacher.id} - {self.student.id}>'
 
     __str__ = __repr__

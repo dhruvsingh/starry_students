@@ -30,4 +30,35 @@ urlpatterns = [
         view=views.StudentDeleteView.as_view(),
         name="student_delete"
     ),
+    # teacher urls
+    path(
+        "teachers/",
+        view=views.TeacherListView.as_view(),
+        name="teacher_list"
+    ),
+    path(
+        "teachers/<int:id>/",
+        view=views.TeacherDetailView.as_view(),
+        name="teacher_detail"
+    ),
+    path(
+        "teachers/<int:id>/update/",
+        view=views.TeacherUpdateView.as_view(),
+        name="teacher_update"
+    ),
+    path(
+        "teachers/add/",
+        view=views.TeacherAddView.as_view(),
+        name="teacher_add"
+    ),
+    path(
+        "teachers/<int:id>/delete/",
+        view=views.TeacherDeleteView.as_view(),
+        name="teacher_delete"
+    ),
+    path(
+        "teachers/<int:id>/<int:student_id>/",
+        view=views.StudentStarView.as_view(),
+        name="student_star_view"
+    ),
 ]

@@ -125,3 +125,9 @@ $ sudo docker-compose -f local.yml run --rm django python manage.py createsuperu
 ::
 
 $ sudo docker-compose -f local.yml run --rm django python manage.py createsuperuser
+
+- Connecting to postgres on docker
+
+::
+
+$ sudo docker-compose -f local.yml run --rm postgres psql -U <username from .envs/.local/.postgres/> -h postgres -p 5432 -d starry_students -W <password from .envs/.local/.postgres/>
