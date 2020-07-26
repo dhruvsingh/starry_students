@@ -18,9 +18,11 @@ Prerequisites
 -------------
 - Install docker_.
 - Install docker-compose_.
+- Uses cookiecutter-django_ for boilerplate.
 
 .. _docker: https://docs.docker.com/get-docker/
 .. _docker-compose: https://docs.docker.com/compose/install/
+.. _cookiecutter-django: https://cookiecutter-django.readthedocs.io/en/latest/
 
 Settings
 --------
@@ -86,8 +88,7 @@ The following details how to deploy this application.
 
 ::
 
-$ export COMPOSE_FILE=local.yml
-$ docker-compose up
+$ docker-compose -f local.yml up
 
 
 Docker

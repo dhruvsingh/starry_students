@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "graphene_django",
 ]
 
 LOCAL_APPS = [
@@ -269,3 +270,6 @@ SOCIALACCOUNT_ADAPTER = "starry_students.users.adapters.SocialAccountAdapter"
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+GRAPHENE = {
+    'SCHEMA': 'starry_students.schema.schema'
+}

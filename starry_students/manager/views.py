@@ -108,6 +108,7 @@ class TeacherDeleteView(DeleteView):
 class StudentStarView(UpdateView):
     """View to delete student."""
 
+    model = TeacherStudent
     queryset = TeacherStudent.objects.all()
     success_url = reverse_lazy("manager:teacher_list")
 
