@@ -59,6 +59,23 @@ Usage
     }
 
 
+- Query to get all teachers and their starred students
+
+::
+
+    query {
+       starredStudents{
+        teacher{
+          id
+          name
+        }
+        student{
+          id
+          name
+        }
+      }
+    }
+
 Helpful commands
 -----------------
 

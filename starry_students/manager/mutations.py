@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 import graphene
 
-from graphene_django import DjangoObjectType
-
 from .models import TeacherStudent
+from .schema import TeacherStudentType
 
-
-class TeacherStudentType(DjangoObjectType):
-    class Meta:
-        model = TeacherStudent
 
 
 class StarMutation(graphene.Mutation):
