@@ -41,6 +41,23 @@ Usage
     }
 
 
+- [Un]Starring a student using graphQL
+- Pass starredStudent as false to unstar, and true to star.
+- teacherId and studentID are required, to depict which teacher is trying to [Un]Star which student.
+
+::
+
+    mutation {
+      updateStar(starredStudent: false, teacherId: 4, studentId: 4){
+        tsObj {
+          id
+          starredStudent
+          student {name}
+          teacher {name}
+        }
+      }
+    }
+
 
 Helpful commands
 -----------------

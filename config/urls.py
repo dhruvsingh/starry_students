@@ -24,7 +24,13 @@ urlpatterns = [
     ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path("graphql", GraphQLView.as_view(graphiql=True, schema=schema)),
+    path(
+        "graphql",
+        GraphQLView.as_view(
+            graphiql=True,
+            schema=schema,
+        )
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
